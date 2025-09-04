@@ -1,5 +1,6 @@
 import model.ext.ElectricMeasuringDevice;
 import model.ext.Multimeter;
+import model.utill.Utility;
 import view.View;
 
 import java.util.Scanner;
@@ -23,7 +24,7 @@ public class App {
                     if (!ElectricMeasuringDevice.isConditionOnOff()) {
                         System.out.println("\nПрилад не ввімкнутий\n");
                     } else {
-                        multimeter.realVoltage(110);
+                        multimeter.realVoltage(Utility.random());
                     }
                     break;
                 case "2":
