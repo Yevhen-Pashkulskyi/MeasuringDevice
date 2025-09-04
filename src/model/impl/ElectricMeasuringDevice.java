@@ -1,10 +1,13 @@
-package model.ext;
+package model.impl;
 
 import model.Device;
 
-public class ElectricMeasuringDevice extends Device {
+public class ElectricMeasuringDevice implements Device {
     static boolean conditionOnOff; // стан (on, off)
     static boolean conditionWorking;
+
+    private String nameDevice;
+    private String serialNumber;
 
     private double height; // висота
     private double length; // довжина
@@ -14,8 +17,10 @@ public class ElectricMeasuringDevice extends Device {
     private double current; // струм
     private double frequency; // частота
 
-    public ElectricMeasuringDevice(double height, double length, double width, double weight,
+
+    public ElectricMeasuringDevice(String nameDevice,double height, double length, double width, double weight,
                                    double voltage, double current, double frequency) {
+        this.nameDevice = nameDevice;
         this.height = height;
         this.length = length;
         this.width = width;
@@ -23,7 +28,6 @@ public class ElectricMeasuringDevice extends Device {
         this.voltage = voltage;
         this.current = current;
         this.frequency = frequency;
-//        this.conditionWorking = conditionWorking;
     }
 
     public static boolean isConditionOnOff() {
@@ -43,8 +47,21 @@ public class ElectricMeasuringDevice extends Device {
     }
 
     @Override
+    public String getNameDevice() {
+        return nameDevice;
+    }
+
+    @Override
+    public void setNameDevice(String name) {
+        if(name == null || name.isEmpty()) {
+            this.nameDevice = "Unknown";
+        }
+        this.nameDevice = name;
+    }
+
+    @Override
     public void showInfo() {
-        System.out.printf("Name = %s\n" +
+        System.out.printf("Name company = %s\n" +
                         "Height = %.2f mm\n" +
                         "Length = %.2f mm\n" +
                         "Width = %.2f mm\n" +
@@ -53,7 +70,7 @@ public class ElectricMeasuringDevice extends Device {
                         "Current = %.2f W\n" +
                         "Frequency = %.2f Hz\n" +
                         "Condition Working = %b\n",
-                this.name, this.height, this.length, this.width, this.weight,
+                NAME_COMPANY, this.height, this.length, this.width, this.weight,
                 this.voltage, this.current, this.frequency, this.conditionWorking);
     }
 }

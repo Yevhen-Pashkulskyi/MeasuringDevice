@@ -1,7 +1,11 @@
 package model;
 
-public abstract class Device {
-    protected String name; // назва
+public interface Device {
+    String NAME_COMPANY = "MASTECH"; // назва компанії
 
-    public abstract void showInfo();
+    void setNameDevice(String name);
+
+    String getNameDevice();
+
+    void showInfo();
 }
