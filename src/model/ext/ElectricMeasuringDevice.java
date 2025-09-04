@@ -4,6 +4,7 @@ import model.Device;
 
 public class ElectricMeasuringDevice extends Device {
     static boolean conditionOnOff; // стан (on, off)
+    static boolean conditionWorking;
 
     private double height; // висота
     private double length; // довжина
@@ -12,7 +13,6 @@ public class ElectricMeasuringDevice extends Device {
     private double voltage; // напруга
     private double current; // струм
     private double frequency; // частота
-    private boolean conditionWorking;
 
     public ElectricMeasuringDevice(double height, double length, double width, double weight,
                                    double voltage, double current, double frequency, boolean conditionWorking) {
@@ -30,32 +30,8 @@ public class ElectricMeasuringDevice extends Device {
         return conditionOnOff;
     }
 
-    public double getHeight() {
-        return height;
-    }
-
-    public double getLength() {
-        return length;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public double getVoltage() {
-        return voltage;
-    }
-
-    public double getCurrent() {
-        return current;
-    }
-
-    public double getFrequency() {
-        return frequency;
+    public static void setConditionOnOff(boolean conditionOnOff) {
+        ElectricMeasuringDevice.conditionOnOff = conditionOnOff;
     }
 
     public boolean isConditionWorking() {

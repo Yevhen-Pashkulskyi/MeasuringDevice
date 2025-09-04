@@ -13,12 +13,20 @@ public class Multimeter extends ElectricMeasuringDevice {
 
     }
 
-    public void realVoltage(){
-
+    public void realVoltage(double voltage) {
+        if(isConditionOnOff() && isConditionWorking()){
+            if (voltage < MIN_VOLTAGE - MEASUREMENT_ERROR_VOLTAGE || voltage > MAX_VOLTAGE +  MEASUREMENT_ERROR_VOLTAGE) {
+                System.out.printf("Значення %f за межами діапазону %f - %f", voltage,
+                        MIN_VOLTAGE - MEASUREMENT_ERROR_VOLTAGE, MAX_VOLTAGE + MEASUREMENT_ERROR_VOLTAGE);
+            }else {
+                System.out.println("\nVoltage: " + voltage + "\n");
+            }
+        }
     }
 
     @Override
     public void showInfo() {
         super.showInfo();
+        System.out.println("Класс мультіметр");
     }
 }

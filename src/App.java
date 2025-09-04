@@ -1,9 +1,41 @@
+import model.ext.ElectricMeasuringDevice;
 import model.ext.Multimeter;
+import view.View;
+
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Multimeter multimeter = new Multimeter("Brymen EVM-839",30.0,168.0,70.0,350.0,
-                24,65,50,false);
-        multimeter.showInfo();
+
+        Scanner input = new Scanner(System.in);
+        View view = new View();
+
+        Multimeter multimeter = new Multimeter("Brymen EVM-839", 30.0, 168.0, 70.0, 350.0,
+                24, 65, 50, true);
+        String choice = "";
+        boolean flag = true;
+        while (flag) {
+            view.showMenu();
+            System.out.print("Input choice: ");
+            choice = input.nextLine();
+            switch (choice) {
+                case "1":
+                    if (!ElectricMeasuringDevice.isConditionOnOff()) {
+                        System.out.println("\nПрилад не ввімкнутий\n");
+                    } else {
+                        multimeter.realVoltage(110);
+                    }
+                    break;
+                case "2":
+                    ElectricMeasuringDevice.setConditionOnOff(true);
+                    System.out.println("\nПрилад готов працювати\n");
+                    break;
+                case "0":
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("\nНе вірний ввод спробуйте ще!\n");
+            }
+        }
     }
 }
