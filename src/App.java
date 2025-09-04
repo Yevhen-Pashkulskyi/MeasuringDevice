@@ -9,22 +9,35 @@ public class App {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        View view = new View();
 
-        Multimeter multimeter = new Multimeter("Brymen EVM-839", 30.0, 168.0, 70.0, 350.0,
+        Multimeter multimeter = new Multimeter("Bremen EVM-839", 30.0, 168.0, 70.0, 350.0,
                 24, 65, 50);
-        String choice = "";
+        String choice;
         boolean flag = true;
+
         while (flag) {
+            View view = new View();
             view.showMenu();
-            System.out.print("Input choice: ");
+            boolean onOff;
+
             choice = input.nextLine();
             switch (choice) {
                 case "1":
                     if (!ElectricMeasuringDevice.isConditionOnOff()) {
                         System.out.println("\nПрилад не ввімкнутий\n");
                     } else {
-                        multimeter.realVoltage(Utility.randomDouble());
+                        view.listOfMeasurements();
+
+                        switch (input.nextLine()) {
+                            case "1":
+                                multimeter.setNameMeasurement("voltage measurement");
+                                if (multimeter.getNameMeasurement().equals("voltage measurement")) {
+                                    multimeter.realVoltage(Utility.randomDouble());
+                                }
+                                break;
+                            case "0":
+                                break;
+                        }
                     }
                     break;
                 case "2":
@@ -33,6 +46,13 @@ public class App {
                     System.out.println("\nПрилад готов працювати\n");
                     break;
                 case "0":
+                    onOff = ElectricMeasuringDevice.isConditionOnOff();
+                    ElectricMeasuringDevice.setConditionOnOff(false);
+                    if (onOff == true) {
+                        System.out.println("Прилад вимикається");
+                    } else {
+                        System.out.println("Вихід з програми!");
+                    }
                     flag = false;
                     break;
                 default:
