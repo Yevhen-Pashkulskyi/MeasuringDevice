@@ -15,7 +15,7 @@ public class ElectricMeasuringDevice extends Device {
     private double frequency; // частота
 
     public ElectricMeasuringDevice(double height, double length, double width, double weight,
-                                   double voltage, double current, double frequency, boolean conditionWorking) {
+                                   double voltage, double current, double frequency) {
         this.height = height;
         this.length = length;
         this.width = width;
@@ -23,7 +23,7 @@ public class ElectricMeasuringDevice extends Device {
         this.voltage = voltage;
         this.current = current;
         this.frequency = frequency;
-        this.conditionWorking = conditionWorking;
+//        this.conditionWorking = conditionWorking;
     }
 
     public static boolean isConditionOnOff() {
@@ -34,8 +34,12 @@ public class ElectricMeasuringDevice extends Device {
         ElectricMeasuringDevice.conditionOnOff = conditionOnOff;
     }
 
-    public boolean isConditionWorking() {
+    public static boolean isConditionWorking() {
         return conditionWorking;
+    }
+
+    public static void setConditionWorking(boolean conditionWorking) {
+        ElectricMeasuringDevice.conditionWorking = conditionWorking;
     }
 
     @Override

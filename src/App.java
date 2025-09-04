@@ -12,7 +12,7 @@ public class App {
         View view = new View();
 
         Multimeter multimeter = new Multimeter("Brymen EVM-839", 30.0, 168.0, 70.0, 350.0,
-                24, 65, 50, true);
+                24, 65, 50);
         String choice = "";
         boolean flag = true;
         while (flag) {
@@ -24,11 +24,12 @@ public class App {
                     if (!ElectricMeasuringDevice.isConditionOnOff()) {
                         System.out.println("\nПрилад не ввімкнутий\n");
                     } else {
-                        multimeter.realVoltage(Utility.random());
+                        multimeter.realVoltage(Utility.randomDouble());
                     }
                     break;
                 case "2":
                     ElectricMeasuringDevice.setConditionOnOff(true);
+                    ElectricMeasuringDevice.setConditionWorking(true);
                     System.out.println("\nПрилад готов працювати\n");
                     break;
                 case "0":

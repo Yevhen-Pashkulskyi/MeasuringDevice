@@ -7,8 +7,8 @@ public class Multimeter extends ElectricMeasuringDevice {
 
     private String voltageMeasurement;
 
-    public Multimeter(String name, double height, double length, double width, double weight, double voltage, double current, double frequency, boolean conditionWorking) {
-        super(height, length, width, weight, voltage, current, frequency, conditionWorking);
+    public Multimeter(String name, double height, double length, double width, double weight, double voltage, double current, double frequency) {
+        super(height, length, width, weight, voltage, current, frequency);
         this.name = name;
 
     }
