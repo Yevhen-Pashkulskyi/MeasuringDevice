@@ -18,9 +18,9 @@ public class ElectricMeasuringDevice implements Device {
     private double frequency; // частота
 
 
-    public ElectricMeasuringDevice(String nameDevice,double height, double length, double width, double weight,
+    public ElectricMeasuringDevice(double height, double length, double width, double weight,
                                    double voltage, double current, double frequency) {
-        this.nameDevice = nameDevice;
+
         this.height = height;
         this.length = length;
         this.width = width;
