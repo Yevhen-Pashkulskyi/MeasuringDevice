@@ -15,7 +15,7 @@ public class App {
         if (gauge.isConditionOnOff()) {
             gauge.setConditionWorking(true);
         }
-        System.out.printf("\nНазва = %s; Висота = %.2f; Довжина = %.2f; Ширина = %.2f; Вага = %.2f; Напруга = %.2f Вольт;" +
+        System.out.printf("\nНазва = %s; Висота = %.2f; Довжина = %.2f; Ширина = %.2f; Вага = %.2f;\nНапруга = %.2f Вольт;" +
                         "Струм = %.2f А; Частота = %.2f Гц; Ввімкнений = %b; Працює = %b\n",
                 gauge.getName(), gauge.getHeight(), gauge.getLength(), gauge.getWidth(), gauge.getWeight(),
                 gauge.getWidth(), gauge.getVoltage(), gauge.getCurrent(),
