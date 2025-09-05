@@ -1,6 +1,6 @@
 import model.ext.ElectricMeasuringDevice;
 import model.ext.Multimeter;
-import utill.Utility;
+import utill.RandomNumber;
 import view.View;
 
 import java.util.Scanner;
@@ -32,7 +32,7 @@ public class App {
                             case "1":
                                 multimeter.setNameMeasurement("voltage measurement");
                                 if (multimeter.getNameMeasurement().equals("voltage measurement")) {
-                                    multimeter.realVoltage(Utility.randomDouble());
+                                    multimeter.realVoltage(RandomNumber.randomDouble());
                                 }
                                 break;
                             case "0":
