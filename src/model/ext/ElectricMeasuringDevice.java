@@ -42,6 +42,10 @@ public class ElectricMeasuringDevice extends Device {
         ElectricMeasuringDevice.conditionWorking = conditionWorking;
     }
 
+    public void setName(String name){
+        this.name=name;
+    }
+
     @Override
     public void showInfo() {
         System.out.printf("Name = %s\n" +

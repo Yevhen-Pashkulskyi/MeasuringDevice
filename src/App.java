@@ -49,9 +49,9 @@ public class App {
                     onOff = ElectricMeasuringDevice.isConditionOnOff();
                     ElectricMeasuringDevice.setConditionOnOff(false);
                     if (onOff == true) {
-                        System.out.println("Прилад вимикається");
+                        System.out.println("Прилад вимикається\n");
                     } else {
-                        System.out.println("Вихід з програми!");
+                        System.out.println("Вихід з програми!\n");
                     }
                     flag = false;
                     break;
@@ -59,5 +59,10 @@ public class App {
                     System.out.println("\nНе вірний ввод спробуйте ще!\n");
             }
         }
+        multimeter.showInfo();
+        ElectricMeasuringDevice electricMeasuringDevice = new ElectricMeasuringDevice(3.0,150.0,3.0,
+                150.0,12.0,5.0,50.0);
+        electricMeasuringDevice.setName("ElectricMeasuringDevice");
+        electricMeasuringDevice.showInfo();
     }
 }

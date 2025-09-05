@@ -34,7 +34,8 @@ public class Multimeter extends ElectricMeasuringDevice {
 
     @Override
     public void showInfo() {
-        super.showInfo();
         System.out.println("Класс мультіметр");
+        super.showInfo();
+        System.out.println();
     }
 }
