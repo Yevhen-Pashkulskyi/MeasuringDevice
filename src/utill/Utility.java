@@ -1,4 +1,4 @@
-package model.utill;
+package utill;
 
 import java.util.concurrent.ThreadLocalRandom;
 

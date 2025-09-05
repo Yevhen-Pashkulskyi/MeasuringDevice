@@ -1,6 +1,6 @@
 import model.ext.ElectricMeasuringDevice;
 import model.ext.Multimeter;
-import model.utill.Utility;
+import utill.Utility;
 import view.View;
 
 import java.util.Scanner;
