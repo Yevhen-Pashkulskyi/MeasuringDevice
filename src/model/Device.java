@@ -120,10 +120,10 @@ public class Device {
                         "Вага %.2f\n" +
                         "Напруга %.2f Вольт\n" +
                         "Струм %.2f А\n" +
-                        "Частота %.2f Гц\n" +
+                        "Частота %.2f Гц\n"/* +
                         "Ввімкнений %b\n" +
-                        "Працює %b",this.name, this.height, this.length, this.width, this.weight,
-                this.voltage, this.current, this.frequency, this.conditionOnOff,this.conditionWorking);
+                        "Працює %b"*/,this.name, this.height, this.length, this.width, this.weight,
+                this.voltage, this.current, this.frequency/*, this.conditionOnOff,this.conditionWorking*/);
     }
 
 }
