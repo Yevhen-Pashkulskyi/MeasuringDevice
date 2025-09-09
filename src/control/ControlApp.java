@@ -1,86 +1,93 @@
 package control;
 
 import model.Device;
+import view.View;
 
+import javax.swing.*;
 import java.util.*;
 
 import static javax.swing.JOptionPane.showInputDialog;
+import static javax.swing.JOptionPane.showMessageDialog;
 import static util.Utility.*;
 
 public class ControlApp {
+
     public void run() {
-        Scanner sc = new Scanner(System.in);
+        View view = new View();
+
         LinkedList<Device> devices = new LinkedList<>();
+
         String choice;
         String nameSearch;
+        boolean flag = true;
 
-        while (true) {
-//            System.out.print("input choice: ");
-            choice = showInputDialog(null, "Input choice: ");
+        while (flag) {
+            choice = showInputDialog(null, view.showMenu());
             if (choice == null || choice.isEmpty()) {
                 continue;
             }
             switch (choice) {
                 case "1":
-//                    System.out.print("Enter the name of the device you want to create: ");
-                    devices.addFirst(createDevice(showInputDialog("Enter the name of the device you want to create:")));//sc.nextLine()));
-                    System.out.printf("Device with name \"%s\" created\n", devices.getFirst().getName());
+                    devices.addFirst(createDevice(showInputDialog("Введіть ім'я приладу яке ви хочете створити")));
+                    showMessageDialog(null, "Прилад " + devices.getFirst().getName() + " створено");
                     break;
                 case "2":
-                    System.out.println("Delete last device: ");
-                    System.out.printf("Device with name \"%s\" deleted\n", devices.getLast().getName());
+                    showMessageDialog(null, "Прилад " + devices.getLast().getName() + " видалено");
                     devices.removeLast();
                     break;
                 case "3":
-                    System.out.print("Enter the name of the device to delete: ");
-                    nameSearch = sc.nextLine();
+                    nameSearch = showInputDialog(null,view.showListDevices(devices)+ "Введіть ім'я приладу який потрібно видалити");
                     for (Device device : devices) {
                         if (device.getName().equals(nameSearch)) {
+                            showMessageDialog(null, "Прилад " + nameSearch + " видалено");
                             devices.remove(device);
-                        } else {
-                            System.out.printf("Device with name \"%s\" not found\n", device.getName());
+                            break;
                         }
                     }
+                    showMessageDialog(null, "Приладу з таким ім'ям " + nameSearch + " немає");
                     break;
                 case "4":
-                    System.out.println("Search device: ");
-                    nameSearch = sc.nextLine();
+                    nameSearch = showInputDialog(null, "Введіть ім'я приладу для перевірки наявності");
                     for (Device device : devices) {
                         if (device.getName().equals(nameSearch)) {
-                            System.out.printf("Device with name \"%s\" found\n", device.getName());
-                        } else {
-                            System.out.printf("Device with name \"%s\" not found\n", device.getName());
+                            showMessageDialog(null, "Прилад " + nameSearch + " є в списку");
+                            break;
                         }
                     }
+                    showMessageDialog(null, "Прилад " + nameSearch + " не має в списку");
                     break;
                 case "5":
-                    System.out.println("Create new linked list.");
                     LinkedList<String> listNameDevices = new LinkedList<>();
                     for (int i = 0; i < devices.size(); i++) {
                         listNameDevices.add(devices.get(i).getName());
                     }
-                    System.out.println("List: " + listNameDevices);
+                    System.out.println("Список імен: " + listNameDevices);
                     break;
                 case "6":
-                    System.out.println("Sort devices by name");
                     TreeSet treeSet = new TreeSet();
                     treeSet.stream().sorted().forEach((device) -> {
                     });
                     break;
                 case "7":
-                    System.out.println("Print devices by name");
+                    String showListGetName = view.showListDevices(devices);
+                    nameSearch = showInputDialog(null, showListGetName + "\nВведіть назву приладу для отримання характеристик");
 
                     for (int i = 0; i < devices.size(); i++) {
-                        if (devices.get(i).getName().equals("")) {}
+                        if (devices.get(i).getName().equals(nameSearch)) {
+                            showMessageDialog(null, devices.get(i).toString());
+                            break;
+                        }
                     }
-                    System.out.println(devices.toString());
+                    break;
+                case "8":
+                    showMessageDialog(null, devices.toString());
+                    break;
+                case "0":
+                    flag = false;
                     break;
                 default:
-                    System.out.println("Invalid choice.");
+                    showMessageDialog(null,"Невірний вибір спробуйте ще!");
                     break;
-//                    throw new IllegalStateException("Unexpected value: " + choice);
-
-
             }
         }
 
