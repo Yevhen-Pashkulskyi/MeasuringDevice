@@ -1,13 +1,8 @@
 package view;
 
-import model.Device;
-
-import java.util.LinkedList;
-import java.util.List;
-
 public class View {
+    // метод для показа меню
     public String showMenu() {
-
         return new String("""
                 1. Додати елемент у початок списку
                 2. Видалити останній елемент
@@ -17,17 +12,7 @@ public class View {
                 6. Відсортувати список за зменшенням деякого атрибуту
                 7. Надрукувати характеристику обраного приладу
                 8. Вивести список усіх приладів
-                0. Exit
                 Оберіть дію: 
                 """);
-    }
-
-    public String showListDevices(LinkedList<Device> devices) {
-        String nameDevices = "";
-        for (Device device : devices){
-            nameDevices += device.getName() + "\n";
-        }
-
-        return nameDevices;
     }
 }

@@ -39,76 +39,32 @@ public class Device {
         this.name = name;
     }
 
-    public double getHeight() {
-        return height;
-    }
-
     public void setHeight(double height) {
         this.height = height;
-    }
-
-    public double getLength() {
-        return length;
     }
 
     public void setLength(double length) {
         this.length = length;
     }
 
-    public double getWidth() {
-        return width;
-    }
-
     public void setWidth(double width) {
         this.width = width;
-    }
-
-    public double getWeight() {
-        return weight;
     }
 
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public double getVoltage() {
-        return voltage;
-    }
-
     public void setVoltage(double voltage) {
         this.voltage = voltage;
-    }
-
-    public double getCurrent() {
-        return current;
     }
 
     public void setCurrent(double current) {
         this.current = current;
     }
 
-    public double getFrequency() {
-        return frequency;
-    }
-
     public void setFrequency(double frequency) {
         this.frequency = frequency;
-    }
-
-    public boolean isConditionOnOff() {
-        return conditionOnOff;
-    }
-
-    public void setConditionOnOff(boolean conditionOnOff) {
-        this.conditionOnOff = conditionOnOff;
-    }
-
-    public boolean isConditionWorking() {
-        return conditionWorking;
-    }
-
-    public void setConditionWorking(boolean conditionWorking) {
-        this.conditionWorking = conditionWorking;
     }
 
     @Override
@@ -120,10 +76,8 @@ public class Device {
                         "Вага %.2f\n" +
                         "Напруга %.2f Вольт\n" +
                         "Струм %.2f А\n" +
-                        "Частота %.2f Гц\n"/* +
-                        "Ввімкнений %b\n" +
-                        "Працює %b"*/,this.name, this.height, this.length, this.width, this.weight,
-                this.voltage, this.current, this.frequency/*, this.conditionOnOff,this.conditionWorking*/);
+                        "Частота %.2f Гц\n",this.name, this.height, this.length, this.width, this.weight,
+                this.voltage, this.current, this.frequency);
     }
 
 }
