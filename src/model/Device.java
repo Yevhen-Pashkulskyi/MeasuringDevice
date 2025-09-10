@@ -71,11 +71,11 @@ public class Device {
     @Override
     public String toString() {
         return String.format("Назва %s\n" +
-                        "Висота %.2f\n" +
-                        "Довжина %.2f\n" +
-                        "Ширина %.2f\n" +
-                        "Вага %.2f\n" +
-                        "Напруга %.2f Вольт\n" +
+                        "Висота %.2f мм\n" +
+                        "Довжина %.2f мм\n" +
+                        "Ширина %.2f мм\n" +
+                        "Вага %.2f г\n" +
+                        "Напруга %.2f В\n" +
                         "Струм %.2f А\n" +
                         "Частота %.2f Гц\n",this.name, this.height, this.length, this.width, this.weight,
                 this.voltage, this.current, this.frequency);

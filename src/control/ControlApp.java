@@ -29,7 +29,8 @@ public class ControlApp {
             switch (choice) {
 
                 case "1":
-                    Device createDevice = createDevice(showInputDialog("Введіть ім'я приладу яке ви хочете створити"));
+                    Device createDevice = createDevice(showInputDialog(null,
+                            "Введіть ім'я приладу яке ви хочете створити","Створення приладу",1));
                     if (createDevice != null) {
                         devices.addFirst(createDevice);
                         showMessageDialog(null, "Прилад " + devices.getFirst().getName() + " створено");
@@ -44,15 +45,16 @@ public class ControlApp {
                         showMessageDialog(null, "Прилад " + devices.getLast().getName() + " видалено");
                         devices.removeLast();
                     } else {
-                        showMessageDialog(null, "Список пуст");
+                        showMessageDialog(null, "Список порожній");
                     }
                     break;
 
                 case "3":
                     if (devices.isEmpty()) {
-                        showMessageDialog(null, "Список пуст");
+                        showMessageDialog(null, "Список порожній");
                     } else {
-                        nameSearch = showInputDialog(null, showListDeviceName(devices) + "Введіть ім'я приладу який потрібно видалити");
+                        nameSearch = showInputDialog(null, showListDeviceName(devices) + "Введіть назву приладу",
+                                "Видалення за назвою",3);
                         if (searchDevice(nameSearch, devices)) {
                             for (Device device : devices) {
                                 if (device.getName().equals(nameSearch)) {
@@ -71,7 +73,8 @@ public class ControlApp {
                     if (devices.isEmpty()) {
                         showMessageDialog(null, "Список порожній");
                     } else {
-                        nameSearch = showInputDialog(null, "Введіть ім'я приладу для перевірки наявності");
+                        nameSearch = showInputDialog(null, "Введіть назву приладу",
+                                "Перевірка наявності",3);
                         if (!searchDevice(nameSearch, devices)) {
                             showMessageDialog(null, "Прилад " + nameSearch + " не має в списку");
                         } else {
@@ -82,7 +85,8 @@ public class ControlApp {
 
                 case "5":
                     if (!devices.isEmpty()) {
-                        nameSearch = showInputDialog(null, "Введіть значення атрибуту, ім'я");
+                        nameSearch = showInputDialog(null, "Введіть значення атрибуту, назва приладу",
+                                "Список з певним атрибутом",3);
                         LinkedList<Device> listNameDevices = createList(devices, nameSearch);
                         if (listNameDevices != null) {
                             showMessageDialog(null, "Список:\n" + showListDevices(listNameDevices).toString());
@@ -97,7 +101,7 @@ public class ControlApp {
                 case "6":
                     if (!devices.isEmpty()) {
                         devices.sort(Comparator.comparing(Device::getName));
-                        showMessageDialog(null, "Список відсортовано");
+                        showMessageDialog(null, "Список відсортовано","Сортування списку",3);
                     } else {
                         showMessageDialog(null, "Список порожній");
                     }
@@ -108,10 +112,15 @@ public class ControlApp {
                         showMessageDialog(null, "Список порожній");
                     } else {
                         StringBuilder showListGetName = showListDeviceName(devices);
-                        nameSearch = showInputDialog(null, showListGetName + "\nВведіть назву приладу для отримання характеристик");
+                        nameSearch = showInputDialog(null,
+                                showListGetName + "\nВведіть назву приладу для отримання характеристик",
+                                "Характеристики приладу",3);
+                        if (nameSearch == null||nameSearch.isEmpty()) {
+                            showMessageDialog(null, "Введіть назву приладу", "Помилка",ERROR_MESSAGE);
+                        }
                         for (int i = 0; i < devices.size(); i++) {
                             if (devices.get(i).getName().equals(nameSearch)) {
-                                showMessageDialog(null, devices.get(i).toString());
+                                showMessageDialog(null, devices.get(i).toString(),"Характеристика приладу",1);
                                 break;
                             }
                         }
@@ -122,7 +131,7 @@ public class ControlApp {
                     if (devices.isEmpty()) {
                         showMessageDialog(null, "Список порожній");
                     } else {
-                        showMessageDialog(null, showListDevices(devices).toString());
+                        showMessageDialog(null, showListDevices(devices).toString(),"Список приладів",3);
                     }
                     break;
 
