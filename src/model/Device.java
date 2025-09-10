@@ -11,8 +11,9 @@ public class Device {
     private double current; // струм
     private double frequency; // частота
 
-    private boolean conditionOnOff; // стан (on, off)
-    private boolean conditionWorking;
+    // стан
+    private boolean conditionOnOff; // on, off
+    private boolean conditionWorking; // працює, не працює
 
     public Device() {
     }

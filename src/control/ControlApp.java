@@ -16,7 +16,6 @@ public class ControlApp {
         LinkedList<Device> devices = new LinkedList<>();
 
         String choice;
-        String nameDevice;
         String nameSearch;
         boolean flag = true;
 
