@@ -1,5 +1,4 @@
-import control.ControlApp;
-import view.BorderPanel;
+
 import model.Device;
 import javax.swing.*;
 import java.awt.*;
