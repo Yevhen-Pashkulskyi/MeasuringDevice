@@ -68,6 +68,22 @@ public class Device {
         this.frequency = frequency;
     }
 
+    public boolean isConditionOnOff() {
+        return conditionOnOff;
+    }
+
+    public void setConditionOnOff(boolean conditionOnOff) {
+        this.conditionOnOff = conditionOnOff;
+    }
+
+    public boolean isConditionWorking() {
+        return conditionWorking;
+    }
+
+    public void setConditionWorking(boolean conditionWorking) {
+        this.conditionWorking = conditionWorking;
+    }
+
     @Override
     public String toString() {
         return String.format("Назва %s\n" +
